@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>wipe</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+	<style>
+		#wipe {
+			margin: 10px auto;
+			width: 300px;
+			height: 430px;
+			background: url(img/girl.jpg) no-repeat;
+			background-size: 100% 100%;
+		}
+		canvas {
+			opacity: 0.9;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="wipe"></div>
+
+	<script src="../src/canvas.js"></script>
+	<script src="../src/wipe.js"></script>
+
+	<script>
+	var wipe = new Wipe({
+		el: '#wipe',
+		fg: 'img/sky.jpg',
+		size: 50,
+		debug: false,
+		autoWipe: false,
+		data: null,
+		onswiping: function (percent) {
+			if (percent <= 0) return;
+			if (percent < 50) {
+				alert('加油，帅哥，我就快出来了！come on！')
+			} else if (percent > 50) {
+				alert('啊，帅哥，谢谢你解救我，今晚我是你的了哦！')
+			} else if (percent > 80) {
+				alert('哇哇哇！！！啊啊啊！！！再来一次！！！');
+			}
+		}
+	})
+	</script>
+</body>
+</html>
