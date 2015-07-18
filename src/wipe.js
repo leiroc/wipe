@@ -1,3 +1,23 @@
+/*
+ * wipe 1.0
+ * A simple, efficent mobile wipe(简单的移动端涂抹插件)
+ * from wnh5 @Author leiroc
+ * Copyright 2015, MIT License
+ *
+*/
+
+/**
+ * animation parmas:
+ *
+ * @param {Element}      el         canvas 外层元素
+ * @param {String}       fg         涂抹层（可以使图片{.png|.jpg}，和16进制颜色 #ccc）
+ * @param {Number}       size       涂抹笔直径
+ * @param {Boolean}      debug      显示控制数据输出
+ * @param {Boolean}      autoWipe   是否自动播放
+ * @param {Array}        data       自动播放的数据
+ * @param {Function}     onswiping  涂抹时的回调函数
+ */
+
 function Wipe(opts) {
     this.opts = {
         el: '#wipe',
