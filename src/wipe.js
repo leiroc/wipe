@@ -1,7 +1,7 @@
 /*
  * wipe 1.0
  * A simple, efficent mobile wipe(简单的移动端涂抹插件)
- * from wnh5 @Author leiroc
+ * from wbh5 @Author leiroc
  * Copyright 2015, MIT License
  *
 */
@@ -31,20 +31,20 @@ function Wipe(opts) {
     for (var i in opts) {
         this.opts[i] = opts[i]
     }
-
     this.init();
 }
 
 Wipe.prototype = {
+    doc: document,
     $: function(name) {
-        return document.querySelector(name);
+        return this.doc.querySelector(name);
     },
     init: function() {
         var self = this,
             devicePixelRatio = window.devicePixelRatio || 1;
         //insert canvas el
         this.wrap = this.$(this.opts.el);
-        this.wrap.appendChild(document.createElement('canvas'));
+        this.wrap.appendChild(this.doc.createElement('canvas'));
         this.wrapWidth = parseInt(this.wrap.offsetWidth);
         this.wrapHeight = parseInt(this.wrap.offsetHeight);
         //prevent defalut
