@@ -35,4 +35,12 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 		}
 	})
 
-#2 就是这么简单，开始玩起来吧！
+#2 演示 就是这么简单，开始玩起来吧！
+###1、默认
+![](http://leicdn.duapp.com/Github/wipe/demo/img/default.png)
+###2、自动涂抹，需要生成轨迹
+![](http://leicdn.duapp.com/Github/wipe/demo/img/auto_wipe.png)
+###3、涂抹图片
+![](http://leicdn.duapp.com/Github/wipe/demo/img/wipe_img.png)
+
+
