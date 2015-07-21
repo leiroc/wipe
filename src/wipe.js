@@ -42,6 +42,7 @@ Wipe.prototype = {
     init: function() {
         var self = this,
             devicePixelRatio = window.devicePixelRatio || 1;
+
         //insert canvas el
         this.wrap = this.$(this.opts.el);
         this.wrap.appendChild(this.doc.createElement('canvas'));
@@ -78,6 +79,13 @@ Wipe.prototype = {
         //path
         this.path = [];
     },
+    winTcanvasXY: function (canvas, x, y) {
+        var cC = canvas.getBoundingClientRect();
+        return {
+            x: x - cC.left,
+            y: y - cC.top
+        }
+    },
     clear: function() {
         this.ctx.clear(0, 0, this.cWidth, this.cHeight);
     },
@@ -99,8 +107,11 @@ Wipe.prototype = {
             x = e.x;
             y = e.y;
         } else {
-            x = e.touches[0].pageX;
-            y = e.touches[0].pageY;
+            /*x = e.touches[0].pageX;
+            y = e.touches[0].pageY;*/
+            var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
+            x = xy.x;
+            y = xy.y;
         }
 
         if (!self.opts.autoWipe) {
@@ -126,8 +137,11 @@ Wipe.prototype = {
             x = e.x;
             y = e.y;
         } else {
-            x = e.targetTouches[0].pageX;
-            y = e.targetTouches[0].pageY;
+            /*x = e.targetTouches[0].pageX;
+            y = e.targetTouches[0].pageY;*/
+            var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
+            x = xy.x;
+            y = xy.y;
         }
         ctx._lineTo(x, y)._stroke();
 
