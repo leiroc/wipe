@@ -1,7 +1,7 @@
 /*
  * wipe 1.0
  * A simple, efficent mobile wipe(简单的移动端涂抹插件)
- * from wbh5 @Author leiroc
+ * from wbh5.com @Author leiroc
  * Copyright 2015, MIT License
  *
 */
@@ -12,7 +12,7 @@
  * @param {Element}      el         canvas 外层元素
  * @param {String}       fg         涂抹层（可以使图片{.png|.jpg}，和16进制颜色 #ccc）
  * @param {Number}       size       涂抹笔直径
- * @param {Boolean}      debug      显示控制数据输出
+ * @param {Boolean}      debug      显示控制数据输出，true时，会在控制台输出轨迹数据
  * @param {Boolean}      autoWipe   是否自动播放
  * @param {Array}        data       自动播放的数据
  * @param {Function}     onswiping  涂抹时的回调函数

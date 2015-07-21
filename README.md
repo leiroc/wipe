@@ -43,4 +43,5 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 ###3、涂抹图片
 ![](http://leicdn.duapp.com/Github/wipe/demo/img/wipe_img.png)
 
-
+###轨迹生成方法：
+打开debug，autoWipe=false，然后会在控制台输出数据轨迹，copy下来，放入 data中即可！

@@ -1,3 +1,12 @@
+/*
+ * canvas 1.0
+ * A simple, canvas CanvasRenderingContext2D.prototype 原型扩展库，便于链式操作；
+ * from wbh5.com @Author leiroc
+ * Copyright 2015, MIT License
+ *
+*/
+
+
  window.requestNextAnimationFrame = (function() {
      var originalWebkitRequestAnimationFrame = undefined,
          wrapper = undefined,
