@@ -107,8 +107,6 @@ Wipe.prototype = {
             x = e.x;
             y = e.y;
         } else {
-            /*x = e.touches[0].pageX;
-            y = e.touches[0].pageY;*/
             var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
             x = xy.x;
             y = xy.y;
@@ -137,8 +135,6 @@ Wipe.prototype = {
             x = e.x;
             y = e.y;
         } else {
-            /*x = e.targetTouches[0].pageX;
-            y = e.targetTouches[0].pageY;*/
             var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
             x = xy.x;
             y = xy.y;
@@ -172,6 +168,7 @@ Wipe.prototype = {
         });
     },
     wipePercent: function(self) {
+        //local img will be error ,so use try
         try {
             var that;
             self ? that = self : that = this;
