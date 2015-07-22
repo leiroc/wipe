@@ -197,6 +197,20 @@ Wipe.prototype = {
             console.log(e)
         }
     },
+    similar: function (datasFist, datasSecond) {
+        var fLen = datasFist.length,
+            sLen = datasSecond.length,
+            si = 0;
+
+        for (var i = 0; i < fLen; i++) {
+            if (datasFist[i].x == datasSecond[i].x || datasFist[i].x <= datasSecond[i].x + 1 || datasFist[i].x <= datasSecond[i].x - 1) {
+                if (datasFist[i].y == datasSecond[i].y || datasFist[i].y <= datasSecond[i].y + 1 || datasFist[i].y<= datasSecond[i].y - 1) {
+                    si ++;
+                }
+            }
+        }
+        return Math.floor(si / fLen * 100);
+    },
     autoWipe: function(datas) {
         var self = this,
             ctx = this.ctx,
