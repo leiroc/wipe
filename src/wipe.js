@@ -26,7 +26,7 @@ function Wipe(opts) {
         debug: false,
         autoWipe: false,
         data: [],
-        onswiping: function(percent) {}
+        onswiping: function(percent, data) {}
     };
     for (var i in opts) {
         this.opts[i] = opts[i]
@@ -43,15 +43,18 @@ Wipe.prototype = {
         var self = this,
             devicePixelRatio = window.devicePixelRatio || 1;
 
+        this.devicePixelRatio = devicePixelRatio;
         //insert canvas el
         this.wrap = this.$(this.opts.el);
+        //clear html
+        this.wrap.innerHTML = null;
         this.wrap.appendChild(this.doc.createElement('canvas'));
         this.wrapWidth = parseInt(this.wrap.offsetWidth);
         this.wrapHeight = parseInt(this.wrap.offsetHeight);
         //prevent defalut
         this.wrap.addEventListener('touchmove', function(e) {
             e.preventDefault()
-        })
+        });
         //get canvas
         this.canvas = this.wrap.childNodes[0];
         this.canvas.style.cssText += 'width: 100%; height: 100%';
@@ -79,6 +82,11 @@ Wipe.prototype = {
         //path
         this.path = [];
     },
+    reset: function (fg) {
+        this.drawFg(fg);
+        //path
+        this.path = [];
+    },
     winTcanvasXY: function (canvas, x, y) {
         var cC = canvas.getBoundingClientRect();
         return {
@@ -89,10 +97,10 @@ Wipe.prototype = {
     clear: function() {
         this.ctx.clear(0, 0, this.cWidth, this.cHeight);
     },
-    drawFg: function() {
-        if (this.opts.fg) {
-            if (this.opts.fg.charAt(0) === '#') {
-                this.ctx.drawRect(0, 0, this.cWidth, this.cHeight, this.opts.fg, 'fill');
+    drawFg: function(fg) {
+        if (this.opts.fg || fg) {
+            if (this.opts.fg.charAt(0) === '#' || fg.charAt(0) === '#') {
+                this.ctx.drawRect(0, 0, this.cWidth, this.cHeight, this.opts.fg || fg, 'fill');
             } else if (/png|jpg/.test(this.opts.fg)) {
                 //draw bg img
                 this.ctx.drawImg(this.opts.fg, 0, 0, this.wrapWidth, this.wrapHeight);
@@ -150,7 +158,7 @@ Wipe.prototype = {
     wipeEnd: function(ctx, e, self) {
         self.endTime = +new Date; //end time
         ctx.cPath();
-        self.opts.onswiping.call(self, self.wipePercent(self));
+        self.opts.onswiping.call(self, self.wipePercent(self), JSON.stringify(self.path));
         self.opts.debug && console.log(JSON.stringify(self.path));
     },
     setEvent: function() {
@@ -189,16 +197,16 @@ Wipe.prototype = {
             console.log(e)
         }
     },
-    autoWipe: function() {
+    autoWipe: function(datas) {
         var self = this,
             ctx = this.ctx,
-            data = self.opts.data,
+            data = datas || self.opts.data,
             len = data.length,
             i = 0,
             animID;
 
         function animate() {
-        	//start animation
+            //start animation
             animID = requestNextAnimationFrame(animate);
 
             if (data[i] === 'pause') {
