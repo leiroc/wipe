@@ -1,3 +1,7 @@
+#BUG Fixed
+- 合并了 wipe.js 和 canvas.js
+- fixed wipe_img bug
+
 # wipe
 Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹，刮刮乐的插件。可以轻松实现，涂抹，记录涂抹轨迹自动播放。
 
@@ -6,7 +10,6 @@ Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹�
 
 ###html
 	<div id="wipe"></div>
-	<script src="../src/canvas.js"></script>
 	<script src="../src/wipe.js"></script>
 其中canvas.js是CanvasRenderingContext2D.prototype.扩展库。方便链式操作。
 ###css
@@ -37,11 +40,11 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 
 #2 演示 就是这么简单，开始玩起来吧！
 ###1、默认
-![](http://leicdn.duapp.com/Github/wipe/demo/img/default.png)
+[http://v5cy.cn:8088/git/wipe/demo/wipe_default.html](http://v5cy.cn:8088/git/wipe/demo/wipe_default.html)
 ###2、自动涂抹，需要生成轨迹
-![](http://leicdn.duapp.com/Github/wipe/demo/img/auto_wipe.png)
+[http://v5cy.cn:8088/git/wipe/demo/auto_wipe.html](http://v5cy.cn:8088/git/wipe/demo/auto_wipe.html)
 ###3、涂抹图片
-![](http://leicdn.duapp.com/Github/wipe/demo/img/wipe_img.png)
+[http://v5cy.cn:8088/git/wipe/demo/wipe_img.html](http://v5cy.cn:8088/git/wipe/demo/wipe_img.html)
 
 ###轨迹生成方法：
 打开debug，autoWipe=false，然后会在控制台输出数据轨迹，copy下来，放入 data中即可！
