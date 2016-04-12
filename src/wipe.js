@@ -530,32 +530,6 @@ Wipe.prototype = {
         self.wipeStart(ctx, data[i], self);
         //move
         requestNextAnimationFrame(animate);
-
-
-
-        //move
-
-        /*var i = 1,
-            loop = setInterval(function() {
-                if (data[i] === 'pause') {
-                    i++;
-                    self.wipeEnd(ctx, data[i], self);
-                    self.wipeStart(ctx, data[i], self);
-                    if (i >= len - 1) {
-                        clearInterval(loop);
-                        //end
-                        self.wipeEnd(ctx, data[len - 1], self);
-                    }
-                } else {
-                    self.wipeMove(ctx, data[i], self);
-                    i++;
-                    if (i >= len - 1) {
-                        clearInterval(loop);
-                        //end
-                        self.wipeEnd(ctx, data[len - 1], self);
-                    }
-                }
-            }, 10);*/
     }
 
-}
+};
