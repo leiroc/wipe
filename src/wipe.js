@@ -384,7 +384,7 @@ Wipe.prototype = {
             //fixed wipe_img bug
             if (this.opts.fg.charAt(0) === '#' || (fg && fg.charAt(0) === '#')) {
                 this.ctx.drawRect(0, 0, this.cWidth, this.cHeight, this.opts.fg || fg, 'fill');
-            } else if (/png|jpg/.test(this.opts.fg)) {
+            } else if (/png|jpg|jpeg/.test(this.opts.fg)) {
                 //draw bg img
                 this.ctx.drawImg(this.opts.fg, 0, 0, this.wrapWidth, this.wrapHeight);
             }
