@@ -480,6 +480,7 @@ Wipe.prototype = {
             console.log(e)
         }
     },
+    //相识度
     similar: function (datasFist, datasSecond) {
         var fLen = datasFist.length,
             sLen = datasSecond.length,
