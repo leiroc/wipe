@@ -11,7 +11,7 @@ Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹�
 ###html
 	<div id="wipe"></div>
 	<script src="../src/wipe.js"></script>
-其中canvas.js是CanvasRenderingContext2D.prototype.扩展库。方便链式操作。
+其中已经合并到 wipe.js中的 canvas.js是CanvasRenderingContext2D.prototype.扩展库。方便链式操作。
 ###css
 	#wipe {
 		margin: 10px auto;
@@ -25,6 +25,8 @@ Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹�
 	}
 
 css其实只是指定canvas后面的世界，和canvas的大小；
+>PS 需要指定宽度和高度
+>
 ###js
 	var wipe = new Wipe({
 		el: '#wipe',
