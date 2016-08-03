@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>autoWipe sync</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../src/wipe.js"></script>
+	<style type="text/css">
+		html,body{width:100%;height:100%;margin:0;padding:0}
+		#draw,#preview{width:100%;height:45%;border-bottom:1px solid #ccc}
+		#resetbtn{width:100%;height:calc(10% - 2px);background:#fff;color:#666;border:none;}
+		#draw canvas,#preview canvas{background:#000}
+	</style>
+</head>
+<body>
+	<div id="draw"></div>
+	<div id="preview"></div>
+	<button id="resetbtn" onclick="resetwipe()">Reset</button>
+</body>
+<script type="text/javascript">
+	var draw = new Wipe({
+		el: '#draw',
+		fg: '#fff',
+		onswiping: function (percent,path,data){
+			//data为最后一次绘制的路径数据
+			preview.autoWipe(JSON.parse(data));
+		}
+	})
+	var preview = new Wipe({
+		el: '#preview',
+		fg: '#FFFFFF',
+		autoWipe:true
+	})
+	function resetwipe(){
+		draw.reset();
+		preview.reset();
+	}
+</script>
+</html>
