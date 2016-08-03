@@ -1,4 +1,22 @@
 #BUG Fixed
+
+> BY ydq
+
+[https://github.com/ydq](https://github.com/ydq "ydq")
+
+> 2016-08-03
+
+
+- 修复reset方法会导致canvas直接全部被涂抹清空的问题
+- 修复resetwipe不能绘制一个点的问题（触摸点击一下不移动产生的数据）
+- 修改onswiping，回调新增了一个参数，可以获取最后一次涂抹的数据
+- 优化合并部分逻辑判断
+- 新增了一个可以同步显示涂抹的demo
+
+
+> ==========
+
+
 - 合并了 wipe.js 和 canvas.js
 - fixed wipe_img bug
 
@@ -47,6 +65,11 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 [http://v5cy.cn:8088/git/wipe/demo/auto_wipe.html](http://v5cy.cn:8088/git/wipe/demo/auto_wipe.html)
 ###3、涂抹图片
 [http://v5cy.cn:8088/git/wipe/demo/wipe_img.html](http://v5cy.cn:8088/git/wipe/demo/wipe_img.html)
+
+###4、实时演示
+[http://v5cy.cn:8088/git/wipe/demo/wipe_sync.html](http://v5cy.cn:8088/git/wipe/demo/wipe_sync.html)
+
+
 
 ###轨迹生成方法：
 打开debug，autoWipe=false，然后会在控制台输出数据轨迹，copy下来，放入 data中即可！
