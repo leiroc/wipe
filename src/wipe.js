@@ -365,6 +365,7 @@ Wipe.prototype = {
         this.path = [];
     },
     reset: function (fg) {
+        this.ctx._gco('source-over');
         this.drawFg(fg);
         //path
         this.path = [];
@@ -401,13 +402,11 @@ Wipe.prototype = {
             var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
             x = xy.x;
             y = xy.y;
-        }
-
-        if (!self.opts.autoWipe) {
             if (self.startTime + 20 * 1000 < self.endTime) {
                 self.path = [];
             } else {
                 self.path.push('pause');
+                self.path.push(xy);//第一个点也需要添加到路径里面
             }
         }
 
@@ -429,19 +428,15 @@ Wipe.prototype = {
             var xy = self.winTcanvasXY(self.canvas, e.touches[0].pageX, e.touches[0].pageY);
             x = xy.x;
             y = xy.y;
+            //catch data
+            self.path.push(xy);
         }
         ctx._lineTo(x, y)._stroke();
-
-        //catch data
-        !self.opts.autoWipe && self.path.push({
-            x: x,
-            y: y
-        })
     },
     wipeEnd: function(ctx, e, self) {
         self.endTime = +new Date; //end time
         ctx.cPath();
-        self.opts.onswiping.call(self, self.wipePercent(self), JSON.stringify(self.path));
+        self.opts.onswiping.call(self, self.wipePercent(self), JSON.stringify(self.path),JSON.stringify(self.path.slice(self.path.lastIndexOf('pause'))));
         self.opts.debug && console.log(JSON.stringify(self.path));
     },
     setEvent: function() {
@@ -502,29 +497,23 @@ Wipe.prototype = {
             len = data.length,
             i = 0,
             animID;
+        data.forEach(function(v){self.path.push(v)});//将自动涂抹的data也加入到自身的path中，可以完整的还原
 
         function animate() {
+            i++;//外面已经调用了一次wipeStart，索引可以直接++ 从1开始
             //start animation
             animID = requestNextAnimationFrame(animate);
 
             if (data[i] === 'pause') {
                 self.wipeEnd(ctx, data[i], self);
                 self.wipeStart(ctx, data[i], self);
-                i++;
-                if (i >= len - 1) {
-                    cancelAnimate(animID);
-                    //end
-                    self.wipeEnd(ctx, data[len - 1], self);
-                }
-            } else {
+            } else if (i<len){
                 self.wipeMove(ctx, data[i], self);
-                i++;
-                if (i >= len - 1) {
+            } else if (i >= len - 1) {
                     cancelAnimate(animID);
                     //end
                     self.wipeEnd(ctx, data[len - 1], self);
                 }
-            }
         }
 
         //sart
