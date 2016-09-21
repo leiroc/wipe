@@ -500,26 +500,30 @@ Wipe.prototype = {
         data.forEach(function(v){self.path.push(v)});//将自动涂抹的data也加入到自身的path中，可以完整的还原
 
         function animate() {
-            i++;//外面已经调用了一次wipeStart，索引可以直接++ 从1开始
+            i++;//外面已经调用了一次wipeStart，索引可以直接++ 从下一个开始
             //start animation
             animID = requestNextAnimationFrame(animate);
 
             if (data[i] === 'pause') {
                 self.wipeEnd(ctx, data[i], self);
-                self.wipeStart(ctx, data[i], self);
+                ++i<len?self.wipeStart(ctx, data[i], self):cancelAnimate(animID);//如果pause后面有数据则从后面的开始，如果没有则直接停止
             } else if (i<len){
                 self.wipeMove(ctx, data[i], self);
             } else if (i >= len - 1) {
-                    cancelAnimate(animID);
-                    //end
-                    self.wipeEnd(ctx, data[len - 1], self);
-                }
+                cancelAnimate(animID);
+                //end
+                self.wipeEnd(ctx, data[len - 1], self);
+            }
         }
 
-        //sart
-        self.wipeStart(ctx, data[i], self);
-        //move
-        requestNextAnimationFrame(animate);
+        //sart  如果数据的前面是pause 则直接跳过第一个pause从第一个有效数据开始
+        while(i<len&&data[i]==='pause') i++;
+        //跳过数据前面的pause后如果数还有数据则正常开始否则不用开始涂抹
+        if(i<len){
+            self.wipeStart(ctx,data[i], self);
+            //move
+            requestNextAnimationFrame(animate);
+        }
     }
 
 };
