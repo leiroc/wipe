@@ -1,4 +1,11 @@
-#BUG Fixed
+
+# 电影资源（nodejs爬虫实践）
+
+关注 “乐派电影” 微信公众号，获取更多高清电影资源。
+
+![](http://cometosay.com/uploads/avatar.jpg)
+
+# BUG Fixed
 
 > BY ydq
 
