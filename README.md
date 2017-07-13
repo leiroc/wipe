@@ -3,7 +3,7 @@
 
 关注 “乐派电影” 微信公众号，获取更多高清电影资源。
 
-![](https://github.com/leiroc/wipe/lp.jpg)
+![](https://raw.githubusercontent.com/leiroc/wipe/master/lp.jpg)
 
 # BUG Fixed
 
