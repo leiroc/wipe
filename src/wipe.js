@@ -374,7 +374,7 @@ Wipe.prototype = {
         var cC = canvas.getBoundingClientRect();
         return {
             x: x - cC.left,
-            y: y - cC.top
+            y: y - cC.top - this.doc.body.scrollTop
         }
     },
     clear: function() {
