@@ -37,10 +37,8 @@ Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹�
 ###html
 
 ```
-
-	<div id="wipe"></div>
-	<script src="../src/wipe.js"></script>
-
+<div id="wipe"></div>
+<script src="../src/wipe.js"></script>
 ```
 
 其中已经合并到 wipe.js中的 canvas.js是CanvasRenderingContext2D.prototype.扩展库。方便链式操作。
@@ -48,18 +46,16 @@ Wipe是一款基于HTML5 canvas的移动端，涂抹，自动播放涂抹轨迹�
 
 
 ```
-
-
-	#wipe {
-		margin: 10px auto;
-		width: 300px;
-		height: 430px;
-		background: url(img/girl.jpg) no-repeat;
-		background-size: 100% 100%;
-	}
-	canvas {
-		opacity: 0.9;
-	}
+#wipe {
+    margin: 10px auto;
+    width: 300px;
+    height: 430px;
+    background: url(img/girl.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+canvas {
+	opacity: 0.9;
+}
 ```
 
 css其实只是指定canvas后面的世界，和canvas的大小；
@@ -68,18 +64,17 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 ###js
 
 ```
-
-	var wipe = new Wipe({
-		el: '#wipe',
-		fg: '#ccc',
-		size: 50,
-		debug: false,
-		autoWipe: false,
-		data: null,
-		onswiping: function (percent) {
-			//do something 涂抹回调函数
-		}
-	})
+var wipe = new Wipe({
+    el: '#wipe',
+    fg: '#ccc',
+    size: 50,
+    debug: false,
+    autoWipe: false,
+    data: null,
+    onswiping: function (percent) {
+    //do something 涂抹回调函数
+    }
+})
 ```
 
 #2 演示 就是这么简单，开始玩起来吧！
@@ -95,11 +90,11 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 
 ###3、涂抹图片
 
-[http://m.imok.top/git/wipe/demo/wipe_img.html](http://m.imok.top/wipe/wipe-master/demo/wipe_img.html)
+[http://m.imok.top/git/wipe/demo/wipe_img.html](http://m.imok.top/git/wipe/demo/wipe_img.html)
 
 ###4、实时演示
 
-[http://m.imok.top/git/wipe/demo/wipe_sync.html](http://m.imok.top/wipe/wipe-master/demo/wipe_sync.html)
+[http://m.imok.top/git/wipe/demo/wipe_sync.html](http://m.imok.top/git/wipe/demo/wipe_sync.html)
 
 
 ###轨迹生成方法：
