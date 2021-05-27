@@ -1,5 +1,11 @@
 
-# BUG Fixed
+# 一款移动端的涂抹插件
+
+> 2021-05-27
+
+更新demo演示地址
+
+
 
 > BY ydq
 
@@ -81,20 +87,19 @@ css其实只是指定canvas后面的世界，和canvas的大小；
 
 ###1、默认
 
-[http://m.imok.top/wipe/wipe-master/demo/wipe_default.html](http://m.imok.top/wipe/wipe-master/demo/wipe_default.html)
+[http://m.imok.top/git/wipe/demo/wipe_default.html](http://m.imok.top/git/wipe/demo/wipe_default.html)
 
 ###2、自动涂抹，需要生成轨迹
 
-[http://m.imok.top/wipe/wipe-master/demo/auto_wipe.html](http://m.imok.top/wipe/wipe-master/demo/auto_wipe.html)
-
+[http://m.imok.top/git/wipe/demo/auto_wipe.html](http://m.imok.top/git/wipe/demo/auto_wipe.html)
 
 ###3、涂抹图片
 
-[http://m.imok.top/wipe/wipe-master/demo/wipe_img.html](http://m.imok.top/wipe/wipe-master/demo/wipe_img.html)
+[http://m.imok.top/git/wipe/demo/wipe_img.html](http://m.imok.top/wipe/wipe-master/demo/wipe_img.html)
 
 ###4、实时演示
 
-[http://m.imok.top/wipe/wipe-master/demo/wipe_sync.html](http://m.imok.top/wipe/wipe-master/demo/wipe_sync.html)
+[http://m.imok.top/git/wipe/demo/wipe_sync.html](http://m.imok.top/wipe/wipe-master/demo/wipe_sync.html)
 
 
 ###轨迹生成方法：
