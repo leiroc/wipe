@@ -3,11 +3,13 @@
 
 > 2021-05-27
 
-更新demo演示地址
+- 更新demo演示地址
 
+- 查看更多前端特效，canvas特效，css3、javascript特效，可以访问：
 
+[https://animpen.com](https://animpen.com)
 
-> BY ydq
+> Bug fixed by ydq
 
 [https://github.com/ydq](https://github.com/ydq "ydq")
 
